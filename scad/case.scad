@@ -26,6 +26,7 @@ include <BOSL/constants.scad>
 use <BOSL/transforms.scad>
 use <BOSL/shapes.scad>
 
+
 // The connector cutouts are in a module so they can be common to both
 // the upper and lower case parts
 module connector_cutouts()
@@ -100,6 +101,9 @@ module lower_case()
                         }
                     }
 
+                    // Camera cable slot
+                    move([2,40,-10]) cuboid([1.75,19.5,50], center=false);
+                    
                     // Mounting holes for Pi4 PCB
                     move([15,4,-6]) {
                         move([3.5,3.5,5]) cyl(h=6, d=2.8, center=false);
@@ -252,3 +256,4 @@ module upper_case(lift)
     }
 }
 
+lower_case();
